@@ -1,0 +1,64 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# SummaryStats
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+**SummaryStats** is an R package that provides a function to calculate summary statistics (mean, median, and count) for a specified numeric column within a data frame, grouped by one or more categorical columns.  
+
+
+## Installation
+
+
+To install the development version of **SummaryStats** directly from GitHub, you'll need the `devtools` package:
+
+```{r}
+install.packages("devtools")
+```
+
+Then, use the following command:
+
+```{r}
+devtools::install_github("ManiSadati/SummaryStats", ref = "0.1.0")
+```
+
+
+
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(datateachr) # <- might contain the data you picked!
+library(tidyverse)
+library(testthat)
+library(SummaryStats)
+
+# Sample data
+data <- data.frame(
+  category = c("A", "A", "B", "B"),
+  values = c(10, 20, 30, 40)
+)
+
+# Calculate summary statistics
+summary_result <- SummaryStats(data, group_vars = "category", summary_var = "values")
+
+# View the results
+summary_result
+```
+
